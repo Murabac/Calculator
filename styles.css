@@ -146,14 +146,14 @@ span.clear {
 	top: 4px;
 	box-shadow: 0px 0px #d3545d;
 }
-
+/* Simulating "pressed" effect when key is pressed */
 .keys span.active{
 	top: 4px;
 	box-shadow: 0px 0px #d3545d;
 	background: #795ebd;
 	color: white;
 }
-
+/* Footer Styles for the github link for Murabac */
 .footer , .footer a, .footer span{
 	font-size: 18px;
 	display: inline;
@@ -164,6 +164,7 @@ span.clear {
 .footer a:hover, .footer span:hover{
 	color: orange;
 }
+/* removing "pressed" effect */
 .hide{
 	display: none;
 }

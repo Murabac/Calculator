@@ -126,25 +126,13 @@ document.onkeydown = function(event) {
     if(key_press==0) {
       input.innerHTML += key_press;
   }
-	if(key == "+") {
-		input.innerHTML += key;
-}
-if(key == "x") {
-	input.innerHTML += key;
-}
-if(key == "/") {
-	input.innerHTML += key;
-}
-if(key == "-") {
-	input.innerHTML += key;
-}
 
     if(key_code==13 || key_code==187 && event.shiftKey == false) {
       input.innerHTML = eval(equation);
       //reset decimal added flag
       decimalAdded =false;
   }
-    if(key_code==8 || key_code==46 || key == "C") {
+    if(key_code==8 || key_code==46 || key == "c") {
 			input.innerHTML = '';
 			decimalAdded = false;
   }
@@ -153,6 +141,7 @@ if(key == "-") {
 	}
 }
 
+//adding keyboard keydown styles
 window.addEventListener('keydown', function(e) {
 let keyPress = String.fromCharCode(event.keyCode);
 let keyCode = e.key;
@@ -162,12 +151,11 @@ if(!key)return;
 key.classList.add("active");
 
 });
-
+//removing keyboard keydown styles
 window.addEventListener('keyup', function(e) {
 let keyPress = String.fromCharCode(event.keyCode);
 let keyCode = e.key;
 const key = document.querySelector(`span[data-key="${keyPress}"]`);
 if(!key)return;
 key.classList.remove("active");
-console.log(key);
 });
