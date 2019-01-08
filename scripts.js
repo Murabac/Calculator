@@ -23,13 +23,13 @@ for(let i = 0; i < keys.length; i++) {
 
 		// If equal key is pressed, calculate and display the result
 		else if(btnVal == '=') {
-			let equation = inputVal; //append equation to letiable
+			let equation = inputVal; //get equation from the screen
 			let lastChar = equation[equation.length - 1]; //target the end of the eval string
 
-			// Use regex to replace all instances of x, ÷, ^ with *, / and **
+			//replace all instances of x, ÷, ^ with *, / and ** these operator sings are readable by the eval function
 			equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 
-			//Use regex to remove decimals from the end of an equation
+			//if user add . in the end of the function remove the . and do the calcilations
 			if(operators.indexOf(lastChar) > -1 || lastChar == '.')
 				equation = equation.replace(/.$/, '');
 
@@ -84,13 +84,12 @@ for(let i = 0; i < keys.length; i++) {
 document.onkeydown = function(event) {
 
 	var key_press = String.fromCharCode(event.keyCode);
-	var key_code = event.keyCode;
-	var key = event.key;
-	var input = document.querySelector('.screen');
-	var inputVal = input.innerHTML;
-	var btnVal = this.innerHTML;
-  var lastChar = inputVal[inputVal.length - 1];
-  var equation = inputVal;
+	var key_code = event.keyCode; //get the keycode of the exact key that was pressed on eg: 187 = and 13 Enter
+	var key = event.key; //get the exact key value of the key that was pressed down on
+	var input = document.querySelector('.screen'); //get the screen to manupulate the text on it
+	var inputVal = input.innerHTML; //get the exact equation on the screen
+	var btnVal = this.innerHTML; // this key word represent the key that was pressed on
+  var equation = inputVal; // place holder or allaise of the equeation in the inputVal variable
 	// Using regex to replace all instances of x, ÷, ^ with *, / and ** respectively.
 	equation = equation.replace(/x/g, '*').replace(/÷/g, '/').replace(/\^/g, '**');
 
@@ -137,7 +136,7 @@ document.onkeydown = function(event) {
 			decimalAdded = false;
   }
 	else {
-		return
+		return;
 	}
 }
 
